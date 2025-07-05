@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Your Name | Thumbnail Designer</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #0d0d0d;
+      --text: #ffffff;
+      --green: #00ff84;
+      --gray: #888;
+    }
+    body {
+      font-family: 'Inter', sans-serif;
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+    }
+    header, section {
+      padding: 40px 20px;
+      text-align: center;
+    }
+    .badge {
+      background: #0d0d0d;
+      border: 1px solid var(--green);
+      border-radius: 20px;
+      color: var(--green);
+      padding: 4px 10px;
+      font-size: 14px;
+      display: inline-block;
+    }
+    h1 {
+      font-size: 2.5rem;
+      margin: 20px 0 10px;
+    }
+    h1 span {
+      color: var(--green);
+    }
+    .btn {
+      background: var(--green);
+      color: #000;
+      padding: 10px 20px;
+      border: none;
+      font-weight: bold;
+      border-radius: 6px;
+      cursor: pointer;
+      margin-top: 15px;
+    }
+    .about {
+      max-width: 600px;
+      margin: auto;
+      line-height: 1.7;
+      color: var(--gray);
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 20px;
+      max-width: 1200px;
+      margin: auto;
+      padding: 20px;
+    }
+    .thumb {
+      width: 100%;
+      border-radius: 10px;
+      overflow: hidden;
+    }
+    .thumb img {
+      width: 100%;
+      display: block;
+    }
+    footer {
+      padding: 20px;
+      text-align: center;
+      font-size: 14px;
+      color: var(--gray);
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="badge">Available for hire</div>
+    <h1>Creating Clickable <span>Thumbnails</span></h1>
+    <button class="btn">Hire Me</button>
+  </header>
+
+  <section>
+    <h2>About Me</h2>
+    <div class="about">
+      <p>Hi, I'm Your Name, a passionate thumbnail designer focused on creating attention-grabbing visuals for YouTube videos. I specialize in Business, Podcast, Education, and IRL content. With over 2 years of experience and 100+ designs, I help creators boost engagement and clicks.</p>
+      <p>⏳ 2+ Years Experience &nbsp;&nbsp; 🔹 100+ Thumbnails</p>
+    </div>
+  </section>
+
+  <section>
+    <h2>🌇 My Works</h2>
+    <div class="grid">
+      <div class="thumb"><img src="thumbnails/1.jpg" alt="Thumbnail 1"></div>
+      <div class="thumb"><img src="thumbnails/2.jpg" alt="Thumbnail 2"></div>
+      <div class="thumb"><img src="thumbnails/3.jpg" alt="Thumbnail 3"></div>
+      <!-- Add more thumbnail blocks as needed -->
+    </div>
+  </section>
+
+  <footer>
+    © 2025 Your Name. All rights reserved. | <a href="mailto:youremail@example.com" style="color: var(--green)">Email me</a>
+  </footer>
+</body>
+</html>
