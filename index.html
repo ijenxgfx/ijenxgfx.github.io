@@ -2,110 +2,270 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Your Name | Thumbnail Designer</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Abu Viz</title>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
   <style>
-    :root {
-      --bg: #0d0d0d;
-      --text: #ffffff;
-      --green: #00ff84;
-      --gray: #888;
-    }
     body {
-      font-family: 'Inter', sans-serif;
       margin: 0;
-      background: var(--bg);
-      color: var(--text);
+      font-family: 'DM Sans', sans-serif;
+      background-color: #0f0f0f;
+      color: #fff;
+      background-image: 
+        linear-gradient(to bottom, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+        linear-gradient(to right, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+      background-size: 30px 30px;
     }
-    header, section {
-      padding: 40px 20px;
-      text-align: center;
-    }
-    .badge {
-      background: #0d0d0d;
-      border: 1px solid var(--green);
-      border-radius: 20px;
-      color: var(--green);
-      padding: 4px 10px;
-      font-size: 14px;
-      display: inline-block;
-    }
-    h1 {
-      font-size: 2.5rem;
-      margin: 20px 0 10px;
-    }
-    h1 span {
-      color: var(--green);
-    }
-    .btn {
-      background: var(--green);
-      color: #000;
-      padding: 10px 20px;
-      border: none;
-      font-weight: bold;
-      border-radius: 6px;
-      cursor: pointer;
-      margin-top: 15px;
-    }
-    .about {
-      max-width: 600px;
-      margin: auto;
-      line-height: 1.7;
-      color: var(--gray);
-    }
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-      gap: 20px;
+
+    .container {
       max-width: 1200px;
-      margin: auto;
-      padding: 20px;
+      margin: 0 auto;
+      padding: 60px 20px;
     }
-    .thumb {
-      width: 100%;
-      border-radius: 10px;
-      overflow: hidden;
-    }
-    .thumb img {
-      width: 100%;
-      display: block;
-    }
-    footer {
-      padding: 20px;
+
+    header {
       text-align: center;
-      font-size: 14px;
-      color: var(--gray);
+      padding: 80px 20px 40px;
+    }
+
+    .intro-content {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    header h1 {
+      font-size: 3rem;
+      margin-bottom: 20px;
+      line-height: 1.2;
+    }
+
+    .highlight {
+      color: #1db954;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .status-badge {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 8px 16px;
+      border: 1px solid #777;
+      border-radius: 999px;
+      background-color: rgba(255, 255, 255, 0.05);
+      font-size: 0.95rem;
+      margin-bottom: 30px;
+    }
+
+    .status-badge .dot {
+      width: 10px;
+      height: 10px;
+      background-color: #1db954;
+      border-radius: 50%;
+      margin-right: 10px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background-color: #1db954;
+      color: #fff;
+      padding: 12px 24px;
+      font-weight: bold;
+      border: none;
+      border-radius: 8px;
+      text-decoration: none;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .btn:hover {
+      background-color: #18a043;
+    }
+
+    .about {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      gap: 40px;
+      padding: 80px 20px;
+    }
+
+    .about img {
+      width: 180px;
+      height: 180px;
+      object-fit: cover;
+      border-radius: 50%;
+    }
+
+    .about-text {
+      max-width: 500px;
+    }
+
+    .about-text h2 {
+      font-size: 2rem;
+      margin-bottom: 20px;
+      color: #1db954;
+    }
+
+    .about-text p {
+      margin-bottom: 20px;
+    }
+    .blue-underline {
+  border-bottom: 2px solid #00aaff;
+  padding-bottom: 0px;
+}
+
+    .about-icons {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      font-size: 1rem;
+      color: #ccc;
+    }
+
+    .about-icons i {
+      color: #1db954;
+      margin-right: 10px;
+    }
+
+    .gallery {
+      padding: 60px 20px;
+    }
+
+    .gallery h2 {
+      font-size: 2rem;
+      margin-bottom: 40px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-left: 40px;
+      color: #1db954;
+    }
+
+    .thumbnails {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 20px;
+    }
+
+    .thumbnails img {
+      width: 100%;
+      height: auto;
+      border-radius: 12px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 40px 20px;
+      color: #aaa;
+      font-size: 0.9rem;
+    }
+
+    footer a {
+      color: #1db954;
+      text-decoration: none;
+    }
+
+    @media (max-width: 768px) {
+      .about {
+        flex-direction: column;
+      }
+
+      .about img {
+        width: 180px;
+        height: 180px;
+      }
+
+      .about-text {
+        text-align: center;
+      }
+
+      .about-icons {
+        align-items: center;
+      }
+
+      .gallery h2 {
+        margin-left: 0;
+        justify-content: center;
+      }
     }
   </style>
 </head>
 <body>
+
   <header>
-    <div class="badge">Available for hire</div>
-    <h1>Creating Clickable <span>Thumbnails</span></h1>
-    <a href="https://bento.me/ijenxgfx" class="btn">Hire Me</a>
+    <div class="intro-content">
+      <div class="status-badge">
+        <div class="dot"></div> Available for hire
+      </div>
+      <h1>
+        Creating Clickable<br />
+        <span class="highlight">Thumbnails <i class="fas fa-chart-line"></i></span>
+      </h1>
+      <a href="https://bento.me/abuviz" class="btn">
+        <i class="fas fa-envelope"></i> Hire Me
+      </a>
+    </div>
   </header>
 
-  <section>
-    <h2>About Me</h2>
-    <div class="about">
-      <p>Hi, I'm Your Name, a passionate thumbnail designer focused on creating attention-grabbing visuals for YouTube videos. I specialize in Business, Podcast, Education, and IRL content. With over 2 years of experience and 100+ designs, I help creators boost engagement and clicks.</p>
-      <p>⏳ 2+ Years Experience &nbsp;&nbsp; 🔹 100+ Thumbnails</p>
+  <section class="about container">
+    <img src="./assets/profile.jpg" alt="Profile Picture" />
+    <div class="about-text">
+      <h2>About Me</h2>
+     <p>
+  Hi, I'm <span class="blue-underline">Abu Saleh</span>, a passionate thumbnail designer specializing in creating eye-catching visuals that boost engagement and clicks.
+  I focus on crafting high-impact thumbnails for
+  <span class="blue-underline">Business</span>, 
+  <span class="blue-underline">Growth</span>, 
+  <span class="blue-underline">Podcast</span>, 
+  <span class="blue-underline">Tutorial</span>, 
+  <span class="blue-underline">Education</span>, and 
+  <span class="blue-underline">IRL</span> content.
+  My goal is to help your videos stand out and attract the right audience with strategic designs.
+</p>
+
+      <div class="about-icons">
+        <div><i class="fas fa-briefcase"></i> 2+ Years of Experience</div>
+        <div><i class="fas fa-check-circle"></i> 100+ Designs Completed</div>
+      </div>
     </div>
   </section>
 
-  <section>
-    <h2>🌇 My Works</h2>
-    <div class="grid">
-      <div class="thumb"><img src="thumbnails/1.jpg" alt="Thumbnail 1"></div>
-      <div class="thumb"><img src="thumbnails/2.jpg" alt="Thumbnail 2"></div>
-      <div class="thumb"><img src="thumbnails/3.jpg" alt="Thumbnail 3"></div>
-      <!-- Add more thumbnail blocks as needed -->
+  <section class="gallery container" id="works">
+    <h2><i class="fas fa-image"></i> My Works</h2>
+    <div class="thumbnails">
+      <img src="./assets/I built the craziest car.png" alt="Thumbnail 18" />
+      <img src="./assets/I became super hero and this happend.png" alt="Thumbnail 17" />
+      <img src="./assets/Imastered all the four elemenets3.png" alt="Thumbnail 16" />
+      <img src="./assets/thumb5.png" alt="Thumbnail 5" />
+      <img src="./assets/thumb13.jpg" alt="Thumbnail 13" />
+      <img src="./assets/thumb4.jpg" alt="Thumbnail 4" />
+      <img src="./assets/thumb10.png" alt="Thumbnail 10" />
+      <img src="./assets/thumb1.jpg" alt="Thumbnail 1" />
+      <img src="./assets/thumb2.jpg" alt="Thumbnail 2" />
+      <img src="./assets/thumb3.jpg" alt="Thumbnail 3" />
+      <img src="./assets/thumb6.jpg" alt="Thumbnail 6" />
+      <img src="./assets/thumb15.jpg" alt="Thumbnail 15" />      
+      <img src="./assets/thumb8.jpg" alt="Thumbnail 8" />
+      <img src="./assets/thumb9.jpg" alt="Thumbnail 9" />    
+      <img src="./assets/thumb11.jpg" alt="Thumbnail 11" />
+      <img src="./assets/thumb12.jpg" alt="Thumbnail 12" />
+      <img src="./assets/thumb14.jpg" alt="Thumbnail 14" />
+      <img src="./assets/thumb7.png" alt="Thumbnail 7" />
     </div>
   </section>
 
   <footer>
-    © 2025 Your Name. All rights reserved. | <a href="mailto:youremail@example.com" style="color: var(--green)">Email me</a>
+    &copy; 2025 Abu Viz. All rights reserved. |
+    <a href="mailto:connect.abuviz@yahoo.com">Email me</a>
   </footer>
+
 </body>
 </html>
