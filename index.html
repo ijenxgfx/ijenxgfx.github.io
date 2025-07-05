@@ -3,22 +3,211 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>I-JenX Graphics</title>
+  <title>Abu Viz</title>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
-  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
-  <link rel="stylesheet" href="style.css" />
+  <style>
+    body {
+      margin: 0;
+      font-family: 'DM Sans', sans-serif;
+      background-color: #111f32;
+      color: #fff;
+      background-image: 
+        linear-gradient(to bottom, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+        linear-gradient(to right, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+      background-size: 30px 30px;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 60px 20px;
+    }
+
+    header {
+      text-align: center;
+      padding: 80px 20px 40px;
+    }
+
+    .intro-content {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    header h1 {
+      font-size: 3rem;
+      margin-bottom: 20px;
+      line-height: 1.2;
+    }
+
+    .highlight {
+      color: #98b7e9;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .status-badge {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 8px 16px;
+      border: 1px solid #777;
+      border-radius: 999px;
+      background-color: rgba(255, 255, 255, 0.05);
+      font-size: 0.95rem;
+      margin-bottom: 30px;
+    }
+
+    .status-badge .dot {
+      width: 10px;
+      height: 10px;
+      background-color: #98b7e9;
+      border-radius: 50%;
+      margin-right: 10px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background-color: #98b7e9;
+      color: #fff;
+      padding: 12px 24px;
+      font-weight: bold;
+      border: none;
+      border-radius: 8px;
+      text-decoration: none;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .btn:hover {
+      background-color: #98b7e9;
+    }
+
+    .about {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      gap: 40px;
+      padding: 80px 20px;
+    }
+
+    .about img {
+      width: 180px;
+      height: 180px;
+      object-fit: cover;
+      border-radius: 50%;
+    }
+
+    .about-text {
+      max-width: 500px;
+    }
+
+    .about-text h2 {
+      font-size: 2rem;
+      margin-bottom: 20px;
+      color: #98b7e9;
+    }
+
+    .about-text p {
+      margin-bottom: 20px;
+    }
+    .blue-underline {
+  border-bottom: 2px solid #00aaff;
+  padding-bottom: 0px;
+}
+
+    .about-icons {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      font-size: 1rem;
+      color: #ccc;
+    }
+
+    .about-icons i {
+      color: #98b7e9;
+      margin-right: 10px;
+    }
+
+    .gallery {
+      padding: 60px 20px;
+    }
+
+    .gallery h2 {
+      font-size: 2rem;
+      margin-bottom: 40px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-left: 40px;
+      color: #98b7e9;
+    }
+
+    .thumbnails {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 20px;
+    }
+
+    .thumbnails img {
+      width: 100%;
+      height: auto;
+      border-radius: 12px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 40px 20px;
+      color: #aaa;
+      font-size: 0.9rem;
+    }
+
+    footer a {
+      color: #98b7e9;
+      text-decoration: none;
+    }
+
+    @media (max-width: 768px) {
+      .about {
+        flex-direction: column;
+      }
+
+      .about img {
+        width: 180px;
+        height: 180px;
+      }
+
+      .about-text {
+        text-align: center;
+      }
+
+      .about-icons {
+        align-items: center;
+      }
+
+      .gallery h2 {
+        margin-left: 0;
+        justify-content: center;
+      }
+    }
+  </style>
 </head>
 <body>
 
-  <header data-aos="fade-down">
+  <header>
     <div class="intro-content">
       <div class="status-badge">
         <div class="dot"></div> Available for Freelance Work
       </div>
       <h1>
         Crafting Designs<br />
-        <span class="highlight">That Sells <i class="fas fa-chart-line"></i></span>
+        <span class="highlight">That Stand Out <i class="fas fa-chart-line"></i></span>
       </h1>
       <a href="https://bento.me/ijenxgfx" class="btn">
         <i class="fas fa-envelope"></i> Hire Me
@@ -26,20 +215,22 @@
     </div>
   </header>
 
-  <section class="about container" data-aos="fade-up">
+  <section class="about container">
     <img src="https://i.postimg.cc/yYSpC9ZF/ijenxgfx-24-logo-1.jpg" />
     <div class="about-text">
       <h2>About Me</h2>
-      <p>
-        Hi, I'm <span class="blue-underline">Istiak Jaman</span>, a passionate thumbnail designer specializing in creating eye-catching visuals that boost engagement and clicks.
-        I focus on crafting high-impact thumbnails for
-        <span class="blue-underline">Business</span>, 
-        <span class="blue-underline">Growth</span>, 
-        <span class="blue-underline">Podcast</span>, 
-        <span class="blue-underline">Tutorial</span>, 
-        <span class="blue-underline">Education</span>, and 
-        <span class="blue-underline">IRL</span> content.
-      </p>
+     <p>
+  Hi, I'm <span class="blue-underline">Istiak Jaman</span>, a passionate thumbnail designer specializing in creating eye-catching visuals that boost engagement and clicks.
+  I focus on crafting high-impact thumbnails for
+  <span class="blue-underline">Business</span>, 
+  <span class="blue-underline">Growth</span>, 
+  <span class="blue-underline">Podcast</span>, 
+  <span class="blue-underline">Tutorial</span>, 
+  <span class="blue-underline">Education</span>, and 
+  <span class="blue-underline">IRL</span> content.
+  My goal is to help your videos stand out and attract the right audience with strategic designs.
+</p>
+
       <div class="about-icons">
         <div><i class="fas fa-briefcase"></i> 3+ Years of Experience</div>
         <div><i class="fas fa-check-circle"></i> 400+ Designs Completed</div>
@@ -47,28 +238,34 @@
     </div>
   </section>
 
-  <section class="gallery container" id="works" data-aos="fade-up">
-    <h2><i class="fas fa-image"></i> My Works</h2>
+  <section class="gallery container" id="works">
+    <h2><i class="fas fa-image"></i> My Designs</h2>
     <div class="thumbnails">
-      <!-- Your thumbnails -->
+      <img src="./assets/I built the craziest car.png" alt="Thumbnail 18" />
+      <img src="./assets/I became super hero and this happend.png" alt="Thumbnail 17" />
+      <img src="./assets/Imastered all the four elemenets3.png" alt="Thumbnail 16" />
+      <img src="./assets/thumb5.png" alt="Thumbnail 5" />
+      <img src="./assets/thumb13.jpg" alt="Thumbnail 13" />
+      <img src="./assets/thumb4.jpg" alt="Thumbnail 4" />
+      <img src="./assets/thumb10.png" alt="Thumbnail 10" />
       <img src="./assets/thumb1.jpg" alt="Thumbnail 1" />
       <img src="./assets/thumb2.jpg" alt="Thumbnail 2" />
-      <!-- Add more as needed -->
+      <img src="./assets/thumb3.jpg" alt="Thumbnail 3" />
+      <img src="./assets/thumb6.jpg" alt="Thumbnail 6" />
+      <img src="./assets/thumb15.jpg" alt="Thumbnail 15" />      
+      <img src="./assets/thumb8.jpg" alt="Thumbnail 8" />
+      <img src="./assets/thumb9.jpg" alt="Thumbnail 9" />    
+      <img src="./assets/thumb11.jpg" alt="Thumbnail 11" />
+      <img src="./assets/thumb12.jpg" alt="Thumbnail 12" />
+      <img src="./assets/thumb14.jpg" alt="Thumbnail 14" />
+      <img src="./assets/thumb7.png" alt="Thumbnail 7" />
     </div>
   </section>
 
-  <footer data-aos="fade-up">
-    &copy; 2025 @ijenxgfx. All rights reserved. |
+  <footer>
+    &copy; 2025 I-JenX Graphics. All rights reserved. |
     <a href="mailto:istiakgraphics.official@gmail.com">Email Here</a>
-    <div class="social-links">
-      <a href="https://instagram.com/ijenxgfx"><i class="fab fa-instagram"></i></a>
-      <a href="https://facebook.com/ijenxgfx"><i class="fab fa-facebook"></i></a>
-      <a href="https://t.me/ijenxgfx"><i class="fab fa-telegram"></i></a>
-      <a href="https://pinterest.com/ijenxgfx"><i class="fab fa-pinterest"></i></a>
-    </div>
   </footer>
 
-  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-  <script src="script.js"></script>
 </body>
 </html>
