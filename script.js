@@ -12,12 +12,24 @@ document.addEventListener('DOMContentLoaded', function() {
     const closeBtn = document.getElementsByClassName("close-button")[0];
 
     // Get all images within the thumbnails grid's gallery-item class
-    document.querySelectorAll('.gallery-item img').forEach(img => {
-        img.addEventListener('click', function() {
+    // We attach the event listener to the entire 'gallery-item' for better UX (larger clickable area)
+    document.querySelectorAll('.gallery-item').forEach(item => {
+        item.addEventListener('click', function() {
+            const img = this.querySelector('img'); // Get the image inside the clicked item
+            const overlayH3 = this.querySelector('.overlay h3');
+            const overlayP = this.querySelector('.overlay p');
+
             modal.style.display = "flex"; // Use flex to center the modal content
-            modalImg.src = this.src;
-            // Use alt text for caption, which contains the full title and a brief description
-            captionText.innerHTML = this.alt;
+            modalImg.src = img.src; // Set modal image source
+
+            // Combine title and description for the modal caption
+            let fullCaption = overlayH3 ? overlayH3.textContent : '';
+            if (overlayP && overlayP.textContent) {
+                fullCaption += (fullCaption ? '<br>' : '') + overlayP.textContent; // Add line break if title exists
+            } else if (img.alt) { // Fallback to alt text if overlay text is missing
+                fullCaption = img.alt;
+            }
+            captionText.innerHTML = fullCaption;
         });
     });
 
@@ -31,7 +43,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Close the modal when clicking outside the image or caption
     if (modal) {
         modal.addEventListener('click', function(event) {
-            // Check if the click occurred directly on the modal background
+            // Ensure click is directly on the modal background, not on the image or caption
             if (event.target === modal) {
                 modal.style.display = "none";
             }
@@ -39,7 +51,6 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     // Scroll Animation (fade-hidden/fade-visible)
-    // This will make elements with the 'fade-hidden' class fade in as they scroll into view.
     const faders = document.querySelectorAll('.fade-hidden');
     const appearOptions = {
         threshold: 0.1, // Element is 10% in view
@@ -59,7 +70,10 @@ document.addEventListener('DOMContentLoaded', function() {
 
     faders.forEach(fader => {
         // Only observe if it's not already visible (e.g., in viewport on page load)
-        if (fader.getBoundingClientRect().top > window.innerHeight) { // Check if below initial viewport
+        // This prevents animations for elements already in view when the page loads.
+        const faderTop = fader.getBoundingClientRect().top;
+        const windowHeight = window.innerHeight;
+        if (faderTop > windowHeight) {
             fader.classList.add('fade-hidden'); // Ensure it starts hidden
             appearOnScroll.observe(fader);
         } else {
