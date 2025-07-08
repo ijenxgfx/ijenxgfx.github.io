@@ -11,13 +11,13 @@ document.addEventListener('DOMContentLoaded', function() {
     const captionText = document.getElementById("caption");
     const closeBtn = document.getElementsByClassName("close-button")[0];
 
-    // Get all images within the thumbnails grid
-    document.querySelectorAll('.thumbnails img').forEach(img => {
+    // Get all images within the thumbnails grid's gallery-item class
+    document.querySelectorAll('.gallery-item img').forEach(img => {
         img.addEventListener('click', function() {
-            modal.style.display = "block";
+            modal.style.display = "flex"; // Use flex to center the modal content
             modalImg.src = this.src;
-            // Use alt text for caption, or you could add a data-caption attribute to your images
-            captionText.innerHTML = this.alt; // Using alt for caption
+            // Use alt text for caption, which contains the full title and a brief description
+            captionText.innerHTML = this.alt;
         });
     });
 
@@ -28,10 +28,11 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // Close the modal when clicking outside the image
+    // Close the modal when clicking outside the image or caption
     if (modal) {
         modal.addEventListener('click', function(event) {
-            if (event.target === modal) { // Ensure click is directly on the modal background
+            // Check if the click occurred directly on the modal background
+            if (event.target === modal) {
                 modal.style.display = "none";
             }
         });
@@ -51,17 +52,15 @@ document.addEventListener('DOMContentLoaded', function() {
                 return; // Not in view yet
             } else {
                 entry.target.classList.add('fade-visible'); // Add visible class for animation
-                // Note: We don't remove 'fade-hidden' here; CSS handles visibility via 'fade-visible'
                 appearOnScroll.unobserve(entry.target); // Stop observing once visible
             }
         });
     }, appearOptions);
 
     faders.forEach(fader => {
-        // Ensure elements start hidden if JS is enabled and observed
         // Only observe if it's not already visible (e.g., in viewport on page load)
         if (fader.getBoundingClientRect().top > window.innerHeight) { // Check if below initial viewport
-            fader.classList.add('fade-hidden');
+            fader.classList.add('fade-hidden'); // Ensure it starts hidden
             appearOnScroll.observe(fader);
         } else {
             fader.classList.add('fade-visible'); // If already in viewport on load, show immediately
