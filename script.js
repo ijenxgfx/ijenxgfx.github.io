@@ -11,25 +11,25 @@ document.addEventListener('DOMContentLoaded', function() {
     const captionText = document.getElementById("caption");
     const closeBtn = document.getElementsByClassName("close-button")[0];
 
-    // Get all images within the thumbnails grid's gallery-item class
-    // We attach the event listener to the entire 'gallery-item' for better UX (larger clickable area)
+    // Get all gallery items
     document.querySelectorAll('.gallery-item').forEach(item => {
         item.addEventListener('click', function() {
-            const img = this.querySelector('img'); // Get the image inside the clicked item
-            const overlayH3 = this.querySelector('.overlay h3');
-            const overlayP = this.querySelector('.overlay p');
+            const imgElement = this.querySelector('img');
+            const projectTitle = imgElement.dataset.title; // Get title from data-title attribute
+            const projectDescription = imgElement.dataset.description; // Get description from data-description attribute
 
-            modal.style.display = "flex"; // Use flex to center the modal content
-            modalImg.src = img.src; // Set modal image source
+            modal.style.display = "flex"; // Show modal with flex to center content
+            modalImg.src = imgElement.src; // Set modal image source
 
-            // Combine title and description for the modal caption
-            let fullCaption = overlayH3 ? overlayH3.textContent : '';
-            if (overlayP && overlayP.textContent) {
-                fullCaption += (fullCaption ? '<br>' : '') + overlayP.textContent; // Add line break if title exists
-            } else if (img.alt) { // Fallback to alt text if overlay text is missing
-                fullCaption = img.alt;
+            // Set the caption below the image using data attributes
+            let captionHTML = '';
+            if (projectTitle) {
+                captionHTML += `<strong>${projectTitle}</strong>`;
             }
-            captionText.innerHTML = fullCaption;
+            if (projectDescription) {
+                captionHTML += (captionHTML ? '<br>' : '') + projectDescription;
+            }
+            captionText.innerHTML = captionHTML;
         });
     });
 
@@ -60,24 +60,22 @@ document.addEventListener('DOMContentLoaded', function() {
     const appearOnScroll = new IntersectionObserver(function(entries, appearOnScroll) {
         entries.forEach(entry => {
             if (!entry.isIntersecting) {
-                return; // Not in view yet
+                return;
             } else {
-                entry.target.classList.add('fade-visible'); // Add visible class for animation
-                appearOnScroll.unobserve(entry.target); // Stop observing once visible
+                entry.target.classList.add('fade-visible');
+                appearOnScroll.unobserve(entry.target);
             }
         });
     }, appearOptions);
 
     faders.forEach(fader => {
-        // Only observe if it's not already visible (e.g., in viewport on page load)
-        // This prevents animations for elements already in view when the page loads.
         const faderTop = fader.getBoundingClientRect().top;
         const windowHeight = window.innerHeight;
         if (faderTop > windowHeight) {
-            fader.classList.add('fade-hidden'); // Ensure it starts hidden
+            fader.classList.add('fade-hidden');
             appearOnScroll.observe(fader);
         } else {
-            fader.classList.add('fade-visible'); // If already in viewport on load, show immediately
+            fader.classList.add('fade-visible');
         }
     });
 });
