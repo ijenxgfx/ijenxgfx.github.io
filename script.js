@@ -15,11 +15,12 @@ document.addEventListener('DOMContentLoaded', function() {
     document.querySelectorAll('.gallery-item').forEach(item => {
         item.addEventListener('click', function() {
             const imgElement = this.querySelector('img');
-            // Retrieve caption data only from data-attributes
+            // Retrieve caption data ONLY from data-attributes for full control
             const projectTitle = imgElement.dataset.title;
             const projectDescription = imgElement.dataset.description;
 
-            modal.style.display = "flex"; // Show modal with flex to center content
+            // Ensure the modal is visible by setting its display property
+            modal.style.display = "flex"; // Changed from "block" to "flex" to enable centering via flexbox
             modalImg.src = imgElement.src; // Set modal image source
 
             // Construct the caption HTML using data attributes
