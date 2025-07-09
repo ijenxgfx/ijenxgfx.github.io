@@ -36,7 +36,8 @@ footer p,
 footer a,
 .btn-freelance,
 .stat-item,
-.overlay p { /* Applied to overlay description */
+.overlay p,
+#caption { /* Applied to overlay description AND modal caption */
     font-family: 'Inter', sans-serif;
 }
 
@@ -298,8 +299,8 @@ img {
 
 .thumbnails {
     display: grid;
-    /* Increased minmax for slightly larger thumbnails */
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    /* Increased minmax for significantly larger thumbnails */
+    grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
     gap: 20px;
 }
 
@@ -507,8 +508,10 @@ footer a {
     background-color: rgba(0,0,0,0.9); /* Black w/ opacity */
     backdrop-filter: blur(5px);
     /* Centering content with flexbox */
-    align-items: center; /* Vertically center */
-    justify-content: center; /* Horizontally center */
+    display: flex; /* This line is now controlled by JS */
+    flex-direction: column; /* Stack image and caption vertically */
+    align-items: center; /* Horizontally center content */
+    justify-content: center; /* Vertically center content */
     overflow: auto; /* Enable scroll if needed for very small screens/large images */
     padding: 20px; /* Padding for modal content */
 }
@@ -516,7 +519,7 @@ footer a {
 .modal-content {
     display: block;
     max-width: 90%; /* Increased max-width */
-    max-height: 85vh;
+    max-height: 80vh; /* Max height to ensure it fits on screen */
     animation-name: zoom;
     animation-duration: 0.6s;
     border-radius: 10px;
@@ -527,12 +530,14 @@ footer a {
 #caption {
     margin: 20px auto 0 auto; /* Margin top to separate from image */
     display: block;
-    width: 90%;
+    width: 90%; /* Match image width for alignment */
     max-width: 700px;
     text-align: center;
     color: #ccc;
     padding: 10px 0;
     height: auto; /* Auto height to fit content */
+    font-size: 0.9em; /* Adjust caption font size */
+    line-height: 1.4;
 }
 
 .close-button {
@@ -643,10 +648,12 @@ footer a {
 
     .modal-content {
         max-width: 95%; /* More width for mobile modal */
-        max-height: 80vh;
+        max-height: 75vh; /* Adjust height for caption */
     }
     #caption {
         width: 95%;
+        font-size: 0.8em;
+        margin-top: 15px;
     }
 
     .social-links-footer {
