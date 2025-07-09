@@ -15,18 +15,20 @@ document.addEventListener('DOMContentLoaded', function() {
     document.querySelectorAll('.gallery-item').forEach(item => {
         item.addEventListener('click', function() {
             const imgElement = this.querySelector('img');
-            const projectTitle = imgElement.dataset.title; // Get title from data-title attribute
-            const projectDescription = imgElement.dataset.description; // Get description from data-description attribute
+            // Retrieve caption data only from data-attributes
+            const projectTitle = imgElement.dataset.title;
+            const projectDescription = imgElement.dataset.description;
 
             modal.style.display = "flex"; // Show modal with flex to center content
             modalImg.src = imgElement.src; // Set modal image source
 
-            // Set the caption below the image using data attributes
+            // Construct the caption HTML using data attributes
             let captionHTML = '';
             if (projectTitle) {
                 captionHTML += `<strong>${projectTitle}</strong>`;
             }
             if (projectDescription) {
+                // Add a line break only if there's a title to separate them visually
                 captionHTML += (captionHTML ? '<br>' : '') + projectDescription;
             }
             captionText.innerHTML = captionHTML;
