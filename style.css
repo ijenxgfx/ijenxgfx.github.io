@@ -282,7 +282,7 @@ img {
     margin-right: 10px;
 }
 
-/* Gallery / My Designs (reverted to 1st page layout with new hover effect) */
+/* Gallery / My Designs */
 .gallery {
     padding: 60px 20px;
 }
@@ -299,12 +299,12 @@ img {
 
 .thumbnails {
     display: grid;
-    /* Increased minmax for significantly larger thumbnails */
-    grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+    /* Increased minmax for even larger thumbnails */
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
     gap: 20px;
 }
 
-.gallery-item { /* New wrapper for image + overlay */
+.gallery-item {
     position: relative;
     overflow: hidden;
     border-radius: 12px;
@@ -321,13 +321,13 @@ img {
 
 .gallery-item img {
     width: 100%;
-    height: auto; /* Keep auto as requested for original thumbnail size */
-    border-radius: 12px; /* Full border-radius from 1st page */
+    height: auto;
+    border-radius: 12px;
     transition: transform 0.5s ease;
 }
 
 .gallery-item:hover img {
-    transform: scale(1.05); /* Slightly zoom the image on hover */
+    transform: scale(1.05);
 }
 
 .overlay {
@@ -335,53 +335,52 @@ img {
     bottom: 0;
     left: 0;
     width: 100%;
-    background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0) 100%); /* Shadow effect */
+    background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0) 100%);
     color: #fff;
     padding: 20px;
-    transform: translateY(100%); /* Start hidden below the image */
+    transform: translateY(100%);
     transition: transform 0.4s ease-out;
-    opacity: 0; /* Start invisible */
+    opacity: 0;
     display: flex;
     flex-direction: column;
-    justify-content: flex-end; /* Align content to bottom */
-    height: 100%; /* Cover full height to allow gradient to work */
-    box-sizing: border-box; /* Include padding in height */
+    justify-content: flex-end;
+    height: 100%;
+    box-sizing: border-box;
 }
 
 .gallery-item:hover .overlay {
-    transform: translateY(0); /* Slide up on hover */
-    opacity: 1; /* Fade in */
+    transform: translateY(0);
+    opacity: 1;
 }
 
 .overlay h3 {
     font-family: 'DM Sans', sans-serif;
-    font-size: 1.2em; /* Slightly smaller title */
+    font-size: 1.2em;
     margin-bottom: 5px;
     color: var(--highlight-color);
 }
 
 .overlay p {
-    font-family: 'Inter', sans-serif; /* Ensure Inter font for description */
-    font-size: 0.85em; /* Small description text */
+    font-family: 'Inter', sans-serif;
+    font-size: 0.85em;
     line-height: 1.4;
     color: #ccc;
-    opacity: 0; /* Initially hidden */
-    transition: opacity 0.3s ease 0.1s; /* Slight delay for text fade-in */
+    opacity: 0;
+    transition: opacity 0.3s ease 0.1s;
 }
 
 .gallery-item:hover .overlay p {
-    opacity: 1; /* Show description on hover */
+    opacity: 1;
 }
 
-
-/* Footer (from 1st page structure, 2nd page social icons) */
+/* Footer */
 footer {
     text-align: center;
     padding: 40px 20px;
     color: #aaa;
     font-size: 0.9rem;
     animation: fadeIn 1s ease-in-out;
-    background-color: #0a1420; /* Slightly darker footer from 2nd page */
+    background-color: #0a1420;
     border-top: 1px solid var(--border-color);
 }
 
@@ -398,7 +397,7 @@ footer a {
 }
 
 .social-links-footer a {
-    font-size: 1.5em; /* Larger icons */
+    font-size: 1.5em;
     color: var(--text-color-light);
     background-color: var(--card-background);
     border: 1px solid var(--border-color);
@@ -497,18 +496,17 @@ footer a {
 
 /* ==== Image Modal (for full view) ==== */
 .modal {
-    /* HIDDEN BY DEFAULT: ONLY JS CHANGES DISPLAY TO FLEX */
-    display: none;
-    position: fixed; /* Stay in place */
-    z-index: 2000; /* Sit on top */
+    display: none; /* Hidden by default */
+    position: fixed;
+    z-index: 2000;
     left: 0;
     top: 0;
-    width: 100%; /* Full width */
-    height: 100%; /* Full height */
-    background-color: rgba(0,0,0,0.9); /* Black w/ opacity */
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.9);
     backdrop-filter: blur(5px);
     /* Centering content with flexbox */
-    display: flex; /* This line is now controlled by JS */
+    display: flex; /* Will be set to flex by JS when opened */
     flex-direction: column; /* Stack image and caption vertically */
     align-items: center; /* Horizontally center content */
     justify-content: center; /* Vertically center content */
@@ -518,8 +516,8 @@ footer a {
 
 .modal-content {
     display: block;
-    max-width: 90%; /* Increased max-width */
-    max-height: 80vh; /* Max height to ensure it fits on screen */
+    max-width: 95%; /* Increased max-width for more image room */
+    max-height: 80vh; /* Adjusted max height to accommodate caption below */
     animation-name: zoom;
     animation-duration: 0.6s;
     border-radius: 10px;
@@ -530,7 +528,7 @@ footer a {
 #caption {
     margin: 20px auto 0 auto; /* Margin top to separate from image */
     display: block;
-    width: 90%; /* Match image width for alignment */
+    width: 95%; /* Match image width for alignment */
     max-width: 700px;
     text-align: center;
     color: #ccc;
@@ -647,8 +645,8 @@ footer a {
     }
 
     .modal-content {
-        max-width: 95%; /* More width for mobile modal */
-        max-height: 75vh; /* Adjust height for caption */
+        max-width: 95%;
+        max-height: 75vh; /* Adjusted for mobile caption */
     }
     #caption {
         width: 95%;
@@ -680,4 +678,4 @@ footer a {
     .about-text p {
         font-size: 0.9em;
     }
-    }
+        }
